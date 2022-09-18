@@ -19,12 +19,7 @@ def getday():
 
 # Create your views here.
 def table(request):
-    userData = {
-        "year": "42",
-        "term": "2",
-        "username": "320220941801",
-        "userpassword": "Lkjhgfdsa114514"
-    }
+    userData = json.loads(request.body)
     table0 = requests.post(url='https://cyonline.lzu.edu.cn/server/common_apis/get_kechengbiao?', data=userData).json()
     print(getweek())
     print(getday())
@@ -33,7 +28,7 @@ def table(request):
     for i in range(0, len(table0['kechengbiao'])):
         for j in range(0, len(table0['kechengbiao'][i]['time'])):
             for k in range(0, len(table0['kechengbiao'][i]['time'][j]['week'])):
-                if table0['kechengbiao'][i]['time'][j]['week'][k] == 3 and table0['kechengbiao'][i]['time'][j]['day'] == 0:
+                if table0['kechengbiao'][i]['time'][j]['week'][k] == getweek() and table0['kechengbiao'][i]['time'][j]['day'] == getday():
                     lessonToday = table0['kechengbiao'][i]['time'][j]['juti'][1]
                     list.append(lessonToday)
     try:
