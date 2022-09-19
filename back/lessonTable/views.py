@@ -10,7 +10,7 @@ import ast
 
 
 def getweek():
-    return int(time.strftime("%W")) - 35
+    return int(time.strftime("%W")) - 34
 
 
 def getday():
@@ -20,7 +20,13 @@ def getday():
 # Create your views here.
 def table(request):
     userData = json.loads(request.body)
-    table0 = requests.post(url='https://cyonline.lzu.edu.cn/server/common_apis/get_kechengbiao?', data=userData).json()
+    data = {
+        'year': '42',
+        'term': '2',
+        'userpassword': userData['userpassword'],
+        'username': userData['username'],
+    }
+    table0 = requests.post(url='https://cyonline.lzu.edu.cn/server/common_apis/get_kechengbiao?', data=data).json()
     print(getweek())
     print(getday())
     list = []
