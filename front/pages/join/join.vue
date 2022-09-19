@@ -44,7 +44,7 @@
 							title: 'ok',
 							duration: 2000
 						})
-						uni.navigateTo({
+						uni.switchTab({
 							url: '../main/main'
 						})
 						}}

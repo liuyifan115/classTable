@@ -37,9 +37,13 @@
 							})
 						}
 						else if(res.data.status_code =='-1'){
+							
 							uni.showToast({
 								icon:'error',
 								title:'你已经在团队了',
+							})
+							uni.switchTab({
+								url:'../main/main'
 							})
 						}
 						else{
@@ -47,7 +51,7 @@
 								title:'创建成功',
 							})
 							uni.setStorageSync('teamid', res.data.teamid)
-							uni.navigateTo({
+							uni.switchTab({
 								url: '../creat/creat'
 							})
 						}

@@ -4,14 +4,23 @@
 			<view class="table1">
 				<view style="font-size: 20rpx;">我的课程</view>
 				<view><hr></view>
-				<view>今日{{lesson}}节</view>
+				<view>
+					<view v-if="lesson == ''">今日无课</view>
+					<view v-else>今日{{lesson}}节</view>
+				</view>
 			</view>
 			<view class="table1">
 				<view style="font-size: 20rpx;">团队课程</view>
 				<view><hr></view>
-				<view>今日{{lesson}}节</view>
+				<view>
+					<view v-if="teamlesson == ''">今日无课</view>
+					<view v-else>今日{{lesson}}节</view>
+				</view>
 				<view><hr></view>
-				<view style="font-size: 15rpx;">团队id：{{teamID}}</view>
+				<view style="font-size: 15rpx;">
+					<view v-if="teamID == ''">暂无团队</view>
+					<view v-else>团队id：{{teamID}}</view>
+				</view>
 			</view>
 		</view>
 		<view class="table0">
